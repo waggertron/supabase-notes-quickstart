@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Private notes</title>
+    <style>
+      body { max-width: 42rem; margin: 3rem auto; padding: 0 1rem;
+        font: 1rem/1.5 system-ui; }
+      label, input, textarea { display: block; }
+      input, textarea { box-sizing: border-box; width: 100%; margin: .5rem 0; }
+      button { margin: .25rem .5rem .25rem 0; padding: .5rem; }
+      li { margin: 1rem 0; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <h1>Private notes</h1>
+    <p id="status" role="status" aria-live="polite"></p>
+    <form id="auth">
+      <label>Email <input name="email" type="email" required autocomplete="username" /></label>
+      <label>Password <input name="password" type="password" minlength="8"
+        required autocomplete="current-password" /></label>
+      <button name="mode" value="signin">Sign in</button>
+      <button name="mode" value="signup">Create account</button>
+    </form>
+    <section id="workspace" hidden aria-label="Your notes">
+      <p id="identity"></p>
+      <button id="signout" type="button">Sign out</button>
+      <button id="refresh" type="button">Refresh notes</button>
+      <form id="add">
+        <label>New note <textarea name="body" required maxlength="2000"></textarea></label>
+        <button>Add note</button>
+      </form>
+      <p>The newest 100 notes appear below.</p>
+      <ul id="notes"></ul>
+    </section>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
